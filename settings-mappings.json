@@ -1,5 +1,6 @@
 {
     "settings": {
+        "max_result_window": 1000000,
         "analysis": {
             "analyzer": {
                 "default": {
@@ -53,6 +54,9 @@
                 "description": {
                     "type": "string",
                     "analyzer": "special_analyzer"
+                },
+                "location": {
+                    "type": "geo_point"
                 },
                 "province": {
                     "type": "object",

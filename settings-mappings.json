@@ -1,3 +1,5 @@
+//PUT domain.com/index_name
+
 {
     "settings": {
         "max_result_window": 1000000,

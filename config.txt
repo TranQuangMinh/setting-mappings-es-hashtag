@@ -1,0 +1,26 @@
+bootstrap.mlockall: true	
+
+==========================
+Elasticsearch dùng thư mục hybrid mmapfs / niofs để lưu index. Mặc định mmap của hệ thống được set khá ít, có thể gây quá tải memory. Trên Linux, bạn có thể tăng giới hạn bằng cách chạy lệnh sau:
+sysctl -w vm.max_map_count=262144
+Để sửa trực tiếp giá trị này, thì cập nhật giá trị của vm.max_map_count trong file /etc/sysctl.conf.
+
+Chú ý: Nếu bạn cài đặt ES sử dụng các gói (.deb, .rpm), thì thiết đặt này được thay đỏi tự động. Để kiểm tra, chạy lệnh:
+sysctl vm.max_map_count
+==========================
+
+set.default.ES_HEAP_SIZE=4000
+set.default.MAX_OPEN_FILES=65535
+set.default.MAX_LOCKED_MEMORY=unlimited
+=======================================
+
+script.inline: true
+script.indexed: true
+=======================================
+
+action.disable_delete_all_indices: true.
+indices.cluster.send_refresh_mapping: false
+indices.fielddata.cache.size: 25%
+
+
+

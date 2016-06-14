@@ -1,5 +1,4 @@
 //PUT domain.com/index_name
-
 {
     "settings": {
         "max_result_window": 1000000,
@@ -40,6 +39,20 @@
         "product": {
             "properties": {
                 "category": {
+                    "type": "object",
+                    "properties": {
+                        "name" : {
+                            "type": "string",
+                            "fields": {
+                                "raw" : {
+                                    "type": "string",
+                                    "index": "not_analyzed"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parent_category": {
                     "type": "object",
                     "properties": {
                         "name" : {
